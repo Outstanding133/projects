@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Safe Online - Awareness Campaign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1>Stay Safe Online</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" title="Toggle dark mode" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Your Guide to a Safer Digital Life</h2>
+                <p>Knowledge is your best defense against online threats. Learn how to protect yourself, your data, and your family.</p>
+                
+                <div class="stats-grid">
+                    <div class="tip-card">
+                        <h3>Quick Tips</h3>
+                        <ul>
+                            <li>Use strong, unique passwords for every account.</li>
+                            <li>Enable Two-Factor Authentication (2FA) everywhere.</li>
+                            <li>Be cautious of links and attachments in emails.</li>
+                            <li>Keep your software and apps updated.</li>
+                            <li>Think before you share personal information.</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Alarming Statistics</h3>
+                        <p class="stat-number">300%</p>
+                        <p>Increase in reported cybercrimes since the pandemic began.</p>
+                        <p class="stat-number" style="margin-top: 1.5rem;">95%</p>
+                        <p>Of cybersecurity breaches are due to human error.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dos-donts">
+            <div class="container">
+                <h2>The Do's & Don'ts of Online Safety</h2>
+                <div class="dos-donts-grid">
+                    <div class="dos-column">
+                        <h3>Do's</h3>
+                        <ul>
+                            <li>Regularly review your privacy settings on social media accounts.</li>
+                            <li>Use a reputable VPN (Virtual Private Network) on public Wi-Fi.</li>
+                            <li>Back up your important data regularly to a separate drive or cloud service.</li>
+                            <li>Educate your children and family members about online risks.</li>
+                            <li>Verify requests for money or personal information, even if they seem to come from friends.</li>
+                        </ul>
+                    </div>
+                    <div class="donts-column">
+                        <h3>Don'ts</h3>
+                        <ul>
+                            <li>Never share your passwords or OTPs (One-Time Passwords) with anyone.</li>
+                            <li>Don't click on pop-up ads or suspicious-looking links.</li>
+                            <li>Avoid using unsecured public Wi-Fi for sensitive transactions like banking.</li>
+                            <li>Don't download software or apps from untrusted sources.</li>
+                            <li>Don't use the same password for multiple websites.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="report">
+            <div class="container">
+                <h2>See Something? Say Something.</h2>
+                <p>If you've encountered a phishing attempt, a scam, or any suspicious online activity, please report it. Your report can help protect others.</p>
+                
+                <form class="report-form" onsubmit="event.preventDefault(); alert('Thank you for your report!');">
+                    <div class="form-group">
+                        <label for="name">Your Name (Optional)</label>
+                        <input type="text" id="name" name="name" placeholder="Outstanding">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email (Optional, for updates)</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="incident-type">Type of Incident</label>
+                        <select id="incident-type" name="incident-type">
+                            <option value="phishing">Phishing Email/Message</option>
+                            <option value="scam">Online Scam</option>
+                            <option value="malware">Malware/Virus</option>
+                            <option value="impersonation">Impersonation Account</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description of Incident</label>
+                        <textarea id="description" name="description" placeholder="Please provide details, such as suspicious links, email content, or account names..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Report</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Stay Safe Online Initiative. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            } else {
+                document.body.classList.remove('dark-mode');
+                toggleSwitch.checked = false;
+            }
+        }
+
+        if (currentTheme) {
+            setTheme(currentTheme);
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+
+</body>
+</html>
